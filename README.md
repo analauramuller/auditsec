@@ -37,7 +37,7 @@ cd backend
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 export DATABASE_URL=postgresql://auditasec:auditasec_secret@localhost:5432/auditasecifc
 alembic upgrade head
-python scripts/generate_seeds.py   # regenerar JSON PT-BR
+python scripts/generate_seeds.py   
 python -m app.seed
 uvicorn app.main:app --reload
 ```
