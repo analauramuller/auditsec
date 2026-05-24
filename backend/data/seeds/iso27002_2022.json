@@ -1,0 +1,839 @@
+[
+  {
+    "code": "5.1",
+    "title": "Politicas de seguranca da informacao",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.1",
+    "description": "Definir, aprovar, publicar e revisar politicas de seguranca da informacao alinhadas aos objetivos da organizacao. As politicas devem ser comunicadas e exigir conformidade de colaboradores e partes relevantes."
+  },
+  {
+    "code": "5.2",
+    "title": "Funcoes e responsabilidades de seguranca da informacao",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.2",
+    "description": "Atribuir e documentar funcoes e responsabilidades de seguranca da informacao de forma clara, incluindo segregacao entre gestao e operacao quando aplicavel. Garantir que as responsabilidades sejam conhecidas e cumpridas."
+  },
+  {
+    "code": "5.3",
+    "title": "Segregacao de funcoes",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.3",
+    "description": "Separar funcoes conflitantes para reduzir risco de fraude, erro ou bypass de controles. Evitar que uma mesma pessoa execute etapas incompativeis sem supervisao ou compensacao adequada."
+  },
+  {
+    "code": "5.4",
+    "title": "Responsabilidades da direcao",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.4",
+    "description": "Exigir que a direcao demonstre lideranca e compromisso com a seguranca da informacao, incluindo recursos e apoio a melhorias. A alta gestao deve promover cultura de seguranca e responsabilizacao."
+  },
+  {
+    "code": "5.5",
+    "title": "Contato com autoridades",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.5",
+    "description": "Manter contatos apropriados com autoridades regulatorias, policiais e de emergencia relevantes. Facilitar comunicacao rapida em incidentes e cumprimento de obrigacoes legais."
+  },
+  {
+    "code": "5.6",
+    "title": "Contato com grupos de interesse especifico",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.6",
+    "description": "Participar de grupos de interesse, foruns e associacoes de seguranca para compartilhar informacoes e boas praticas. Aproveitar inteligencia coletiva sobre ameacas e tendencias do setor."
+  },
+  {
+    "code": "5.7",
+    "title": "Inteligencia de ameacas",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.7",
+    "description": "Coletar e analisar informacoes sobre ameacas para orientar avaliacao de riscos e controles. Integrar inteligencia de ameacas ao planejamento e resposta de seguranca."
+  },
+  {
+    "code": "5.8",
+    "title": "Seguranca da informacao no gerenciamento de projetos",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.8",
+    "description": "Incorporar requisitos de seguranca da informacao desde o inicio de projetos e mudancas. Avaliar riscos de SI em entregas, recursos e cronogramas de projetos."
+  },
+  {
+    "code": "5.9",
+    "title": "Inventario de informacoes e outros ativos associados",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.9",
+    "description": "Manter inventario atualizado de informacoes e ativos associados, com proprietarios e classificacao. O inventario sustenta gestao de riscos, acesso e ciclo de vida dos ativos."
+  },
+  {
+    "code": "5.10",
+    "title": "Uso aceitavel de informacoes e outros ativos associados",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.10",
+    "description": "Definir regras de uso aceitavel para informacoes e ativos, incluindo uso pessoal e restricoes. Comunicar expectativas e consequencias de uso indevido."
+  },
+  {
+    "code": "5.11",
+    "title": "Devolucao de ativos",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.11",
+    "description": "Garantir devolucao de ativos organizacionais ao encerrar contrato, mudanca de funcao ou desligamento. Incluir equipamentos, credenciais, documentos e dados sob custodia do colaborador."
+  },
+  {
+    "code": "5.12",
+    "title": "Classificacao da informacao",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.12",
+    "description": "Classificar informacoes conforme necessidade de protecao legal, valor e criticidade. A classificacao orienta controles de acesso, rotulagem e tratamento."
+  },
+  {
+    "code": "5.13",
+    "title": "Rotulagem da informacao",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.13",
+    "description": "Rotular informacao de acordo com o esquema de classificacao adotado, em meios fisicos e digitais. Facilitar identificacao e manuseio correto por quem acessa os dados."
+  },
+  {
+    "code": "5.14",
+    "title": "Transferencia de informacao",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.14",
+    "description": "Proteger informacao em transferencias internas e externas por acordos, criptografia ou canais seguros. Considerar tipo de meio, destinatario e classificacao da informacao."
+  },
+  {
+    "code": "5.15",
+    "title": "Controle de acesso",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.15",
+    "description": "Estabelecer politica e regras de controle de acesso baseadas em necessidade de negocio e principio do menor privilegio. Cobrir usuarios, sistemas, redes e aplicacoes."
+  },
+  {
+    "code": "5.16",
+    "title": "Gestao de identidades",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.16",
+    "description": "Gerenciar ciclo de vida de identidades de usuarios e contas de servico, incluindo provisionamento e desprovisionamento. Vincular identidades a pessoas ou entidades autorizadas."
+  },
+  {
+    "code": "5.17",
+    "title": "Informacao de autenticacao",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.17",
+    "description": "Proteger credenciais e demais informacoes de autenticacao contra divulgacao e uso indevido. Definir requisitos de qualidade, distribuicao, armazenamento e revogacao."
+  },
+  {
+    "code": "5.18",
+    "title": "Direitos de acesso",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.18",
+    "description": "Conceder, revisar e revogar direitos de acesso de forma formal e periodica. Garantir que permissoes reflitam funcao atual e sejam removidas quando nao mais necessarias."
+  },
+  {
+    "code": "5.19",
+    "title": "Seguranca da informacao em relacionamentos com fornecedores",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.19",
+    "description": "Identificar e tratar riscos de seguranca da informacao em relacionamentos com fornecedores. Avaliar capacidade de fornecedores antes e durante a contratacao."
+  },
+  {
+    "code": "5.20",
+    "title": "Abordagem de seguranca da informacao em acordos com fornecedores",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.20",
+    "description": "Incluir requisitos de seguranca da informacao em contratos e acordos com fornecedores. Cobrir confidencialidade, conformidade, auditoria e tratamento de incidentes."
+  },
+  {
+    "code": "5.21",
+    "title": "Gestao da seguranca da informacao na cadeia de fornecimento de TIC",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.21",
+    "description": "Gerenciar riscos de seguranca na cadeia de fornecimento de produtos e servicos de TIC. Considerar componentes, atualizacoes, integridade e origem dos fornecedores."
+  },
+  {
+    "code": "5.22",
+    "title": "Monitoramento, analise critica e gestao de mudancas de servicos de fornecedores",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.22",
+    "description": "Monitorar, revisar e gerenciar mudancas nos servicos prestados por fornecedores. Avaliar desempenho de seguranca e reagir a desvios ou incidentes."
+  },
+  {
+    "code": "5.23",
+    "title": "Seguranca da informacao para uso de servicos em nuvem",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.23",
+    "description": "Definir requisitos e responsabilidades de seguranca no uso de servicos em nuvem. Esclarecer modelo de responsabilidade compartilhada e controles do provedor versus cliente."
+  },
+  {
+    "code": "5.24",
+    "title": "Planejamento e preparacao da gestao de incidentes de seguranca da informacao",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.24",
+    "description": "Planejar e preparar processos, equipes e ferramentas para gestao de incidentes de seguranca da informacao. Definir papeis, comunicacao e criterios de escalonamento."
+  },
+  {
+    "code": "5.25",
+    "title": "Avaliacao e decisao sobre eventos de seguranca da informacao",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.25",
+    "description": "Avaliar eventos de seguranca para decidir se constituem incidentes e priorizar resposta. Registrar eventos e correlacionar indicadores suspeitos."
+  },
+  {
+    "code": "5.26",
+    "title": "Resposta a incidentes de seguranca da informacao",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.26",
+    "description": "Responder a incidentes de forma estruturada para conter, erradicar e recuperar servicos. Preservar evidencias e comunicar partes interessadas conforme plano."
+  },
+  {
+    "code": "5.27",
+    "title": "Aprendizado com incidentes de seguranca da informacao",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.27",
+    "description": "Analisar incidentes e licoes aprendidas para melhorar controles e preparacao. Atualizar procedimentos, treinamento e avaliacao de riscos com base nos achados."
+  },
+  {
+    "code": "5.28",
+    "title": "Coleta de evidencias",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.28",
+    "description": "Definir procedimentos para coleta e preservacao de evidencias digitais e fisicas. Garantir cadeia de custodia e admissibilidade quando necessario para investigacao ou acao legal."
+  },
+  {
+    "code": "5.29",
+    "title": "Seguranca da informacao durante a interrupcao",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.29",
+    "description": "Manter seguranca da informacao durante interrupcoes operacionais ou de negocio. Aplicar controles alternativos ou reforcados conforme plano de continuidade."
+  },
+  {
+    "code": "5.30",
+    "title": "Prontidao de TIC para continuidade de negocios",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.30",
+    "description": "Garantir prontidao de TIC para suportar continuidade de negocios nos tempos e niveis definidos. Incluir redundancia, backup, recuperacao e testes periodicos."
+  },
+  {
+    "code": "5.31",
+    "title": "Requisitos legais, estatutarios, regulatorios e contratuais",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.31",
+    "description": "Identificar e cumprir requisitos legais, estatutarios, regulatorios e contratuais aplicaveis a SI. Manter registro de obrigacoes e revisar mudancas na legislacao."
+  },
+  {
+    "code": "5.32",
+    "title": "Direitos de propriedade intelectual",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.32",
+    "description": "Proteger direitos de propriedade intelectual e uso licenciado de software e conteudo. Evitar copia ou distribuicao nao autorizada de materiais protegidos."
+  },
+  {
+    "code": "5.33",
+    "title": "Protecao de registros",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.33",
+    "description": "Proteger registros contra perda, destruicao, falsificacao e acesso nao autorizado. Definir retencao, armazenamento e descarte conforme requisitos legais e de negocio."
+  },
+  {
+    "code": "5.34",
+    "title": "Privacidade e protecao de PII",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.34",
+    "description": "Cumprir requisitos de privacidade e protecao de dados pessoais (PII) aplicaveis. Alinhar tratamento de PII a politicas, consentimento e direitos dos titulares."
+  },
+  {
+    "code": "5.35",
+    "title": "Analise critica independente da seguranca da informacao",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.35",
+    "description": "Realizar analises criticas independentes da abordagem de seguranca da informacao em intervalos planejados. Avaliar eficacia do SGSI e oportunidades de melhoria."
+  },
+  {
+    "code": "5.36",
+    "title": "Conformidade com politicas, regras e normas de seguranca da informacao",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.36",
+    "description": "Verificar conformidade com politicas, procedimentos e normas de seguranca da informacao. Tratar desvios e reforcar accountability por area ou processo."
+  },
+  {
+    "code": "5.37",
+    "title": "Procedimentos operacionais documentados",
+    "category": "organizational",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 5.37",
+    "description": "Documentar e manter procedimentos operacionais para atividades criticas de SI. Garantir que operadores sigam instrucoes consistentes e atualizadas."
+  },
+  {
+    "code": "6.1",
+    "title": "Selecao de pessoal",
+    "category": "people",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 6.1",
+    "description": "Verificar antecedentes de candidatos antes da contratacao, proporcionais ao cargo e acesso a informacoes. Incluir referencias e checagens legais quando exigido."
+  },
+  {
+    "code": "6.2",
+    "title": "Termos e condicoes de contratacao",
+    "category": "people",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 6.2",
+    "description": "Incluir responsabilidades de seguranca da informacao nos contratos de trabalho e termos de colaboradores. Formalizar deveres de confidencialidade e uso aceitavel desde o inicio."
+  },
+  {
+    "code": "6.3",
+    "title": "Conscientizacao, educacao e treinamento em seguranca da informacao",
+    "category": "people",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 6.3",
+    "description": "Promover conscientizacao, educacao e treinamento continuos em seguranca da informacao. Adequar conteudo ao perfil e atualizar conforme ameacas e politicas."
+  },
+  {
+    "code": "6.4",
+    "title": "Processo disciplinar",
+    "category": "people",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 6.4",
+    "description": "Aplicar processo disciplinar formal para violacoes da politica de seguranca da informacao. Garantir proporcionalidade e registro das medidas adotadas."
+  },
+  {
+    "code": "6.5",
+    "title": "Responsabilidades apos encerramento ou mudanca de emprego",
+    "category": "people",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 6.5",
+    "description": "Gerenciar responsabilidades de seguranca apos mudanca ou termino de emprego, incluindo revogacao de acessos. Reforcar obrigacoes de confidencialidade apos desligamento."
+  },
+  {
+    "code": "6.6",
+    "title": "Acordos de confidencialidade",
+    "category": "people",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 6.6",
+    "description": "Exigir acordos de confidencialidade ou nao divulgacao quando aplicavel a colaboradores e terceiros. Cobrir escopo, duracao e consequencias de violacao."
+  },
+  {
+    "code": "6.7",
+    "title": "Trabalho remoto",
+    "category": "people",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 6.7",
+    "description": "Definir requisitos de seguranca para trabalho remoto, incluindo acesso, equipamento e ambiente fisico. Orientar uso seguro de redes e protecao de informacao fora das instalacoes."
+  },
+  {
+    "code": "6.8",
+    "title": "Relato de eventos de seguranca da informacao",
+    "category": "people",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 6.8",
+    "description": "Estimular e facilitar relato oportuno de eventos e fraquezas de seguranca da informacao. Garantir canal conhecido e tratamento sem retaliacao indevida ao relator."
+  },
+  {
+    "code": "7.1",
+    "title": "Perimetros de seguranca fisica",
+    "category": "physical",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 7.1",
+    "description": "Definir e proteger perimetros fisicos de areas que contem informacoes e ativos sensíveis. Usar barreiras, controle de entrada e sinalizacao adequada."
+  },
+  {
+    "code": "7.2",
+    "title": "Entrada fisica",
+    "category": "physical",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 7.2",
+    "description": "Controlar entrada fisica em instalacoes e areas seguras por autorizacao e registro. Gerenciar visitantes, credenciais e acesso temporario."
+  },
+  {
+    "code": "7.3",
+    "title": "Seguranca de escritorios, salas e instalacoes",
+    "category": "physical",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 7.3",
+    "description": "Proteger escritorios, salas e instalacoes contra acesso nao autorizado, danos e interferencia. Considerar localizacao, blindagem e isolamento de areas criticas."
+  },
+  {
+    "code": "7.4",
+    "title": "Monitoramento de seguranca fisica",
+    "category": "physical",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 7.4",
+    "description": "Monitorar areas fisicas por pessoal, alarmes ou CCTV conforme avaliacao de risco. Registrar e revisar eventos de seguranca fisica."
+  },
+  {
+    "code": "7.5",
+    "title": "Protecao contra ameacas fisicas e ambientais",
+    "category": "physical",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 7.5",
+    "description": "Proteger instalacoes contra ameacas fisicas e ambientais como incendio, inundacao, vandalismo e falha de energia. Implementar detectores, supressao e redundancia quando necessario."
+  },
+  {
+    "code": "7.6",
+    "title": "Trabalho em areas seguras",
+    "category": "physical",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 7.6",
+    "description": "Estabelecer regras e controles para trabalho em areas seguras, incluindo conhecimento das atividades e restricoes. Limitar atividades nao autorizadas nessas areas."
+  },
+  {
+    "code": "7.7",
+    "title": "Mesa limpa e tela limpa",
+    "category": "physical",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 7.7",
+    "description": "Aplicar politica de mesa limpa e tela limpa para reduzir exposicao de informacao sensivel. Bloquear estacoes e armazenar documentos quando ausente."
+  },
+  {
+    "code": "7.8",
+    "title": "Localizacao e protecao de equipamentos",
+    "category": "physical",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 7.8",
+    "description": "Posicionar e proteger equipamentos contra ameacas ambientais e acesso nao autorizado. Proteger cabos, energia e suporte de processamento."
+  },
+  {
+    "code": "7.9",
+    "title": "Seguranca de ativos fora das instalacoes",
+    "category": "physical",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 7.9",
+    "description": "Proteger ativos utilizados fora das instalacoes, incluindo dispositivos moveis e midias. Definir responsabilidades do usuario e medidas como criptografia e bloqueio."
+  },
+  {
+    "code": "7.10",
+    "title": "Midias de armazenamento",
+    "category": "physical",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 7.10",
+    "description": "Gerenciar ciclo de vida de midias de armazenamento, incluindo manuseio, transporte e descarte seguro. Evitar vazamento de dados remanescentes em midias reutilizadas."
+  },
+  {
+    "code": "7.11",
+    "title": "Servicos de suporte",
+    "category": "physical",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 7.11",
+    "description": "Proteger instalacoes de energia, HVAC, comunicacoes e outros servicos de suporte contra falha ou sabotagem. Monitorar e manter conformidade com requisitos de SI."
+  },
+  {
+    "code": "7.12",
+    "title": "Seguranca do cabeamento",
+    "category": "physical",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 7.12",
+    "description": "Proteger cabeamento de energia e telecomunicacoes contra interceptacao, dano ou indisponibilidade. Separar cabos de dados de fontes de interferencia quando possivel."
+  },
+  {
+    "code": "7.13",
+    "title": "Manutencao de equipamentos",
+    "category": "physical",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 7.13",
+    "description": "Realizar manutencao de equipamentos conforme especificacoes do fabricante e politica interna. Autorizar pessoal de manutencao e supervisionar trabalhos em equipamentos sensiveis."
+  },
+  {
+    "code": "7.14",
+    "title": "Descarte seguro ou reutilizacao de equipamentos",
+    "category": "physical",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 7.14",
+    "description": "Descartar ou reutilizar equipamentos de forma segura, removendo dados e licencas. Verificar destruicao ou sanitizacao de midias antes do descarte."
+  },
+  {
+    "code": "8.1",
+    "title": "Dispositivos finais de usuarios",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.1",
+    "description": "Proteger dispositivos finais de usuarios contra ameacas e uso indevido por politicas e ferramentas. Incluir patch, antimalware, criptografia e restricao de software."
+  },
+  {
+    "code": "8.2",
+    "title": "Direitos de acesso privilegiado",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.2",
+    "description": "Restringir e gerenciar contas e direitos de acesso privilegiado com aprovacao e monitoramento. Minimizar privilegios e revisar uso periodicamente."
+  },
+  {
+    "code": "8.3",
+    "title": "Restricao de acesso a informacao",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.3",
+    "description": "Restringir acesso a informacao e funcoes de sistemas conforme politica de controle de acesso. Aplicar mecanismos tecnicos alinhados a classificacao e necessidade de negocio."
+  },
+  {
+    "code": "8.4",
+    "title": "Acesso ao codigo-fonte",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.4",
+    "description": "Controlar acesso ao codigo-fonte, bibliotecas e ferramentas de desenvolvimento. Evitar alteracoes nao autorizadas e vazamento de propriedade intelectual."
+  },
+  {
+    "code": "8.5",
+    "title": "Autenticacao segura",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.5",
+    "description": "Implementar mecanismos de autenticacao segura proporcionais ao risco, incluindo MFA quando adequado. Proteger sessoes e bloquear tentativas de acesso indevido."
+  },
+  {
+    "code": "8.6",
+    "title": "Gestao de capacidade",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.6",
+    "description": "Monitorar e projetar capacidade de recursos de processamento, armazenamento e rede. Planejar expansao para evitar degradacao ou indisponibilidade por sobrecarga."
+  },
+  {
+    "code": "8.7",
+    "title": "Protecao contra malware",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.7",
+    "description": "Proteger contra malware com deteccao, prevencao e recuperacao em endpoints e servidores. Atualizar assinaturas e restringir execucao nao autorizada."
+  },
+  {
+    "code": "8.8",
+    "title": "Gestao de vulnerabilidades tecnicas",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.8",
+    "description": "Identificar, avaliar e tratar vulnerabilidades tecnicas em sistemas e aplicacoes. Aplicar patches ou compensacoes em prazos alinhados ao risco."
+  },
+  {
+    "code": "8.9",
+    "title": "Gestao de configuracao",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.9",
+    "description": "Estabelecer, documentar e monitorar configuracoes seguras de hardware e software. Controlar mudancas e usar linhas de base endurecidas."
+  },
+  {
+    "code": "8.10",
+    "title": "Exclusao de informacao",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.10",
+    "description": "Excluir informacao de sistemas e midias quando nao mais necessaria, de forma irreversivel quando exigido. Registrar exclusoes sensiveis e validar eficacia."
+  },
+  {
+    "code": "8.11",
+    "title": "Mascaramento de dados",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.11",
+    "description": "Aplicar mascaramento de dados em exibicoes, relatorios e interfaces para limitar exposicao de PII ou dados sensiveis. Usar tecnicas adequadas ao contexto de uso."
+  },
+  {
+    "code": "8.12",
+    "title": "Prevencao de vazamento de dados",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.12",
+    "description": "Prevenir vazamento de dados por monitoramento, DLP e restricoes de exportacao ou compartilhamento. Cobrir e-mail, armazenamento, impressao e canais de saida."
+  },
+  {
+    "code": "8.13",
+    "title": "Backup de informacao",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.13",
+    "description": "Realizar backups de informacao e software conforme politica, testando restauracao periodicamente. Proteger backups contra acesso nao autorizado e perda."
+  },
+  {
+    "code": "8.14",
+    "title": "Redundancia de instalacoes de processamento de informacao",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.14",
+    "description": "Prover redundancia de instalacoes de processamento para atender requisitos de disponibilidade. Alinhar a objetivos de continuidade e recuperacao de desastres."
+  },
+  {
+    "code": "8.15",
+    "title": "Registro de eventos (logging)",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.15",
+    "description": "Registrar eventos relevantes de seguranca e operacao, protegendo logs contra alteracao. Definir retencao, sincronizacao de tempo e analise de registros."
+  },
+  {
+    "code": "8.16",
+    "title": "Atividades de monitoramento",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.16",
+    "description": "Monitorar redes, sistemas e aplicacoes para detectar comportamento anomalo e incidentes. Integrar alertas a processos de resposta e gestao de vulnerabilidades."
+  },
+  {
+    "code": "8.17",
+    "title": "Sincronizacao de relogios",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.17",
+    "description": "Sincronizar relogios de sistemas com fonte confiavel para correlacao de eventos e investigacoes. Aplicar em todos os sistemas que geram registros de auditoria."
+  },
+  {
+    "code": "8.18",
+    "title": "Uso de programas utilitarios privilegiados",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.18",
+    "description": "Restringir e controlar uso de programas utilitarios que podem contornar controles de sistema. Limitar a administradores autorizados e registrar uso."
+  },
+  {
+    "code": "8.19",
+    "title": "Instalacao de software em sistemas operacionais",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.19",
+    "description": "Controlar instalacao de software em sistemas operacionais por politica e ferramentas de gestao. Permitir apenas software aprovado e licenciado."
+  },
+  {
+    "code": "8.20",
+    "title": "Seguranca de redes",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.20",
+    "description": "Proteger redes e dispositivos de rede contra ameacas e acesso nao autorizado. Aplicar segmentacao, filtragem e endurecimento de equipamentos."
+  },
+  {
+    "code": "8.21",
+    "title": "Seguranca de servicos de rede",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.21",
+    "description": "Proteger servicos de rede e aplicacoes expostos, incluindo autenticacao e criptografia. Gerenciar configuracoes de servicos e desativar funcoes desnecessarias."
+  },
+  {
+    "code": "8.22",
+    "title": "Segregacao de redes",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.22",
+    "description": "Segmentar redes para isolar grupos de servicos, usuarios e sistemas conforme risco. Limitar propagacao de incidentes entre segmentos."
+  },
+  {
+    "code": "8.23",
+    "title": "Filtragem web",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.23",
+    "description": "Filtrar acesso a sites e conteudo web malicioso ou nao autorizado. Aplicar listas, categorias e inspecao conforme politica de uso aceitavel."
+  },
+  {
+    "code": "8.24",
+    "title": "Uso de criptografia",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.24",
+    "description": "Usar criptografia adequada para proteger confidencialidade e integridade da informacao em repouso e em transito. Gerenciar chaves e algoritmos conforme boas praticas."
+  },
+  {
+    "code": "8.25",
+    "title": "Ciclo de vida de desenvolvimento seguro",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.25",
+    "description": "Integrar seguranca em todas as fases do ciclo de vida de desenvolvimento de sistemas e software. Definir requisitos, modelagem de ameacas e revisoes de seguranca."
+  },
+  {
+    "code": "8.26",
+    "title": "Requisitos de seguranca de aplicacoes",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.26",
+    "description": "Especificar e validar requisitos de seguranca em aplicacoes novas e alteradas. Considerar autenticacao, autorizacao, entrada de dados e protecao de sessao."
+  },
+  {
+    "code": "8.27",
+    "title": "Arquitetura e engenharia de sistemas seguros",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.27",
+    "description": "Aplicar principios de arquitetura e engenharia segura em projetos de sistemas. Usar padroes, defesa em profundidade e minimizacao de superficie de ataque."
+  },
+  {
+    "code": "8.28",
+    "title": "Codificacao segura",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.28",
+    "description": "Adotar praticas de codificacao segura e revisao de codigo para reduzir vulnerabilidades. Treinar desenvolvedores e usar ferramentas de analise estatica quando aplicavel."
+  },
+  {
+    "code": "8.29",
+    "title": "Testes de seguranca em desenvolvimento e aceitacao",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.29",
+    "description": "Executar testes de seguranca durante desenvolvimento e aceitacao antes de producao. Incluir testes funcionais, penetracao ou SAST/DAST conforme risco."
+  },
+  {
+    "code": "8.30",
+    "title": "Desenvolvimento terceirizado",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.30",
+    "description": "Direcionar e supervisionar desenvolvimento terceirizado quanto a requisitos de seguranca e entregaveis. Exigir conformidade contratual e evidencias de testes."
+  },
+  {
+    "code": "8.31",
+    "title": "Separacao de ambientes de desenvolvimento, teste e producao",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.31",
+    "description": "Separar ambientes de desenvolvimento, teste e producao para evitar impacto nao autorizado em producao. Controlar promocao de codigo e dados entre ambientes."
+  },
+  {
+    "code": "8.32",
+    "title": "Gestao de mudancas",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.32",
+    "description": "Gerenciar mudancas em sistemas e infraestrutura por processo formal com avaliacao de impacto e aprovacao. Registrar, testar e reverter mudancas quando necessario."
+  },
+  {
+    "code": "8.33",
+    "title": "Informacao de teste",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.33",
+    "description": "Proteger dados de teste, evitando uso de dados reais sensiveis sem autorizacao e mascaramento. Eliminar ou proteger dados de teste apos o uso."
+  },
+  {
+    "code": "8.34",
+    "title": "Protecao de sistemas de informacao durante testes de auditoria",
+    "category": "technological",
+    "module": "ISO27001",
+    "catalog_version": "NBR ISO/IEC 27002:2022",
+    "guidance_ref": "NBR ISO/IEC 27002:2022 - 8.34",
+    "description": "Planejar e restringir testes de auditoria para nao afetar disponibilidade ou integridade de sistemas em producao. Coordenar com responsaveis e monitorar atividades de teste."
+  }
+]

@@ -1,0 +1,28 @@
+@startuml use-case-ana-seguranca
+left to right direction
+actor Auditor as auditor
+
+rectangle "ANA Seguranca" {
+  usecase "Selecionar modulo\n(27001 ou 27701)" as UC1
+  usecase "Cadastrar empresa" as UC2
+  usecase "Registrar respostas\ndos controles" as UC3
+  usecase "Finalizar auditoria" as UC4
+  usecase "Visualizar dashboard" as UC5
+  usecase "Comparar auditorias\n(ate 3)" as UC6
+  usecase "Gerar relatorio" as UC7
+}
+
+auditor --> UC1
+auditor --> UC2
+auditor --> UC3
+auditor --> UC4
+auditor --> UC5
+auditor --> UC6
+auditor --> UC7
+
+UC2 ..> UC3 : <<include>>
+UC3 ..> UC4 : <<include>>
+UC4 ..> UC5 : <<include>>
+UC5 <.. UC6 : <<extend>>
+UC5 <.. UC7 : <<extend>>
+@enduml

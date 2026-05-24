@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatorio de Conformidade - {{ company.name }}</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 2rem; color: #222; }
+    h1, h2 { color: #1a365d; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { border: 1px solid #ccc; padding: 0.5rem; text-align: left; }
+    th { background: #edf2f7; }
+    .summary { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .card { border: 1px solid #ccc; padding: 1rem; border-radius: 4px; min-width: 140px; }
+    .conforme { color: #276749; }
+    .nc { color: #c53030; }
+    @media print { button { display: none; } }
+  </style>
+</head>
+<body>
+  <button onclick="window.print()">Imprimir</button>
+  <h1>Relatorio de Conformidade ISO</h1>
+  <p><strong>Empresa:</strong> {{ company.name }}{% if company.cnpj %} ({{ company.cnpj }}){% endif %}</p>
+  <p><strong>Modulo:</strong> {{ audit.module }} | <strong>Data:</strong> {{ audit.audit_date }}</p>
+  <p><strong>Tipo:</strong> {{ report_type }} | <strong>Modo:</strong> {{ mode }}</p>
+
+  <div class="summary">
+    <div class="card"><strong>Conformidade geral</strong><br>{{ dashboard.percent_total }}%</div>
+    <div class="card"><strong>Conformes</strong><br>{{ dashboard.conforme }}</div>
+    <div class="card"><strong>Nao conformes</strong><br>{{ dashboard.nao_conforme }}</div>
+    <div class="card"><strong>Em andamento</strong><br>{{ dashboard.em_andamento }}</div>
+    <div class="card"><strong>Nao aplica</strong><br>{{ dashboard.nao_aplica }}</div>
+  </div>
+
+  <h2>Por categoria</h2>
+  <table>
+    <tr><th>Categoria</th><th>Total</th><th>Conforme</th><th>NC</th><th>Andamento</th><th>N/A</th><th>%</th></tr>
+    {% for cat in dashboard.by_category %}
+    <tr>
+      <td>{{ cat.label }}</td>
+      <td>{{ cat.total }}</td>
+      <td class="conforme">{{ cat.conforme }}</td>
+      <td class="nc">{{ cat.nao_conforme }}</td>
+      <td>{{ cat.em_andamento }}</td>
+      <td>{{ cat.nao_aplica }}</td>
+      <td>{{ cat.percent_conformidade }}%</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  {% if comparison and comparison.audits %}
+  <h2>Comparativo (ultimas auditorias)</h2>
+  <table>
+    <tr><th>Data</th><th>% Conformidade</th></tr>
+    {% for item in comparison.audits %}
+    <tr><td>{{ item.audit_date }}</td><td>{{ item.percent_conformidade }}%</td></tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+
+  <h2>Detalhamento dos controles</h2>
+  <table>
+    <tr><th>Codigo</th><th>Titulo</th><th>Categoria</th><th>Status</th></tr>
+    {% for row in rows %}
+    <tr>
+      <td>{{ row.code }}</td>
+      <td>
+        {{ row.title }}
+        {% if row.description %}<br><small style="color:#555">{{ row.description }}</small>{% endif %}
+      </td>
+      <td>{{ row.category }}</td>
+      <td>{{ row.status }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>

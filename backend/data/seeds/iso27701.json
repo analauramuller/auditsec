@@ -1,0 +1,443 @@
+[
+  {
+    "code": "A1.1",
+    "title": "Politica de privacidade e protecao de PII",
+    "category": "annex_a1",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A1.1",
+    "description": "Estabelecer politica de privacidade e protecao de PII alinhada ao papel de controlador e requisitos legais. Comunicar compromissos e revisar periodicamente."
+  },
+  {
+    "code": "A1.2",
+    "title": "Papéis e responsabilidades de privacidade",
+    "category": "annex_a1",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A1.2",
+    "description": "Definir papeis e responsabilidades para privacidade e tratamento de PII em toda a organizacao. Garantir accountability e interfaces com DPO ou equivalente quando aplicavel."
+  },
+  {
+    "code": "A1.3",
+    "title": "Privacidade desde a concepcao e por padrao",
+    "category": "annex_a1",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A1.3",
+    "description": "Incorporar privacidade desde a concepcao e por padrao em processos, sistemas e produtos. Minimizar coleta e maximizar protecao por desenho."
+  },
+  {
+    "code": "A1.4",
+    "title": "Inventario de processamento de PII",
+    "category": "annex_a1",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A1.4",
+    "description": "Manter inventario das atividades de tratamento de PII, finalidades, categorias de dados e destinatarios. Base para transparencia, RIPD e demonstracao de conformidade."
+  },
+  {
+    "code": "A1.5",
+    "title": "Base legal e gestao de consentimento",
+    "category": "annex_a1",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A1.5",
+    "description": "Identificar e documentar base legal para cada tratamento e gerenciar consentimento quando exigido. Permitir revogacao e registro de preferencias do titular."
+  },
+  {
+    "code": "A1.6",
+    "title": "Limitacao de finalidade do tratamento",
+    "category": "annex_a1",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A1.6",
+    "description": "Limitar tratamento de PII as finalidades determinadas, explicitas e legitimas. Evitar uso secundario incompativel sem nova base legal ou consentimento."
+  },
+  {
+    "code": "A1.7",
+    "title": "Minimizacao de dados",
+    "category": "annex_a1",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A1.7",
+    "description": "Coletar e manter apenas PII adequada, relevante e limitada ao necessario para a finalidade. Revisar periodicamente a necessidade de campos e registros."
+  },
+  {
+    "code": "A1.8",
+    "title": "Exatidao e atualizacao de PII",
+    "category": "annex_a1",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A1.8",
+    "description": "Manter PII exata e atualizada, corrigindo ou completando dados quando identificadas imprecisoes. Oferecer meios para titulares atualizarem informacoes."
+  },
+  {
+    "code": "A1.9",
+    "title": "Retencao e descarte de PII",
+    "category": "annex_a1",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A1.9",
+    "description": "Definir prazos de retencao e procedimentos seguros de descarte ou anonimizacao de PII. Nao reter dados alem do necessario para a finalidade ou obrigacao legal."
+  },
+  {
+    "code": "A1.10",
+    "title": "Direitos dos titulares de dados",
+    "category": "annex_a1",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A1.10",
+    "description": "Atender direitos dos titulares como acesso, retificacao, exclusao, portabilidade e oposicao nos prazos legais. Documentar solicitacoes e respostas."
+  },
+  {
+    "code": "A1.11",
+    "title": "Avaliacao de impacto a protecao de dados (AIPD/RIPD)",
+    "category": "annex_a1",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A1.11",
+    "description": "Realizar avaliacao de impacto a protecao de dados (RIPD/AIPD) quando o tratamento apresentar alto risco. Implementar medidas de mitigacao e consultar autoridade se exigido."
+  },
+  {
+    "code": "A1.12",
+    "title": "Contratos e gestao de operadores de PII",
+    "category": "annex_a1",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A1.12",
+    "description": "Formalizar contratos com operadores de PII com clausulas de seguranca, subcontratacao e assistencia. Monitorar conformidade dos operadores contratados."
+  },
+  {
+    "code": "A1.13",
+    "title": "Transferencia internacional de PII",
+    "category": "annex_a1",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A1.13",
+    "description": "Garantir transferencias internacionais de PII apenas com salvaguardas adequadas e base legal. Documentar mecanismos como clausulas padrao ou decisoes de adequacao."
+  },
+  {
+    "code": "A1.14",
+    "title": "Notificacao de incidentes envolvendo PII",
+    "category": "annex_a1",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A1.14",
+    "description": "Notificar autoridades e titulares de incidentes envolvendo PII conforme prazos e criterios legais. Integrar com gestao de incidentes de seguranca."
+  },
+  {
+    "code": "A1.15",
+    "title": "Conscientizacao em privacidade",
+    "category": "annex_a1",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A1.15",
+    "description": "Promover conscientizacao em privacidade para colaboradores que tratam PII. Atualizar treinamento conforme mudancas regulatorias e processos."
+  },
+  {
+    "code": "A1.16",
+    "title": "Documentacao de obrigacoes do controlador",
+    "category": "annex_a1",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A1.16",
+    "description": "Documentar obrigacoes do controlador perante titulares e lei aplicavel de forma acessivel. Manter registros que demonstrem accountability."
+  },
+  {
+    "code": "A1.17",
+    "title": "Arranjos entre controladores conjuntos",
+    "category": "annex_a1",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A1.17",
+    "description": "Definir arranjos claros entre controladores conjuntos sobre responsabilidades e comunicacao com titulares. Formalizar em acordo acessivel ao titular."
+  },
+  {
+    "code": "A1.18",
+    "title": "Limitacao da coleta de PII",
+    "category": "annex_a1",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A1.18",
+    "description": "Limitar coleta de PII ao minimo necessario no momento da obtencao, por meios legais e transparentes. Evitar coleta excessiva ou enganosa."
+  },
+  {
+    "code": "A1.19",
+    "title": "Aviso de privacidade ao titular",
+    "category": "annex_a1",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A1.19",
+    "description": "Fornecer aviso de privacidade claro ao titular no momento da coleta, com finalidades, bases legais e direitos. Atualizar avisos quando o tratamento mudar."
+  },
+  {
+    "code": "A1.20",
+    "title": "Criterios de selecao de operadores",
+    "category": "annex_a1",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A1.20",
+    "description": "Estabelecer criterios para selecao de operadores quanto a capacidade de proteger PII. Avaliar antes da contratacao e revisar periodicamente."
+  },
+  {
+    "code": "A1.21",
+    "title": "Gestao de suboperadores",
+    "category": "annex_a1",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A1.21",
+    "description": "Controlar e autorizar suboperadores que tratam PII em nome do controlador. Manter lista atualizada e garantir obrigacoes contratuais equivalentes."
+  },
+  {
+    "code": "A1.22",
+    "title": "Registro das atividades de tratamento",
+    "category": "annex_a1",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A1.22",
+    "description": "Manter registro das atividades de tratamento conforme exigido pela legislacao aplicavel. Incluir finalidades, categorias, destinatarios e transferencias."
+  },
+  {
+    "code": "A1.23",
+    "title": "Decisoes automatizadas e perfilamento",
+    "category": "annex_a1",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A1.23",
+    "description": "Gerenciar decisoes automatizadas e perfilamento com transparencia e direito de contestacao quando aplicavel. Avaliar impactos e bases legais especificas."
+  },
+  {
+    "code": "A1.24",
+    "title": "Marketing e comunicacoes",
+    "category": "annex_a1",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A1.24",
+    "description": "Tratar PII em marketing e comunicacoes com consentimento ou base legal adequada e opt-out. Respeitar preferencias e registros de consentimento."
+  },
+  {
+    "code": "A1.25",
+    "title": "Uso de cookies e tecnologias similares",
+    "category": "annex_a1",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A1.25",
+    "description": "Informar e obter consentimento para cookies e tecnologias similares conforme regulacao. Permitir gestao de preferencias e registro de escolhas."
+  },
+  {
+    "code": "A2.1",
+    "title": "Instrucoes documentadas do controlador ao operador",
+    "category": "annex_a2",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A2.1",
+    "description": "Seguir instrucoes documentadas do controlador sobre tratamento de PII e limites de finalidade. Nao tratar alem do contratado sem autorizacao."
+  },
+  {
+    "code": "A2.2",
+    "title": "Confidencialidade das pessoas que tratam PII",
+    "category": "annex_a2",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A2.2",
+    "description": "Garantir confidencialidade de pessoas autorizadas a tratar PII por contrato e treinamento. Aplicar obrigacoes mesmo apos termino do relacionamento."
+  },
+  {
+    "code": "A2.3",
+    "title": "Seguranca do tratamento pelo operador",
+    "category": "annex_a2",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A2.3",
+    "description": "Implementar medidas de seguranca do tratamento proporcionais ao risco, alinhadas ao SGSI. Proteger PII contra acesso, perda ou divulgacao nao autorizados."
+  },
+  {
+    "code": "A2.4",
+    "title": "Autorizacao para subcontratacao de tratamento",
+    "category": "annex_a2",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A2.4",
+    "description": "Obter autorizacao previa do controlador para subcontratar tratamento de PII. Informar identidade de suboperadores e manter cadeia contratual."
+  },
+  {
+    "code": "A2.5",
+    "title": "Assistencia ao controlador em direitos dos titulares",
+    "category": "annex_a2",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A2.5",
+    "description": "Auxiliar o controlador no atendimento a direitos dos titulares dentro dos prazos acordados. Fornecer informacoes e ferramentas necessarias a resposta."
+  },
+  {
+    "code": "A2.6",
+    "title": "Exclusao ou devolucao de PII ao termino",
+    "category": "annex_a2",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A2.6",
+    "description": "Excluir ou devolver PII ao controlador ao termino do contrato, salvo obrigacao legal de retencao. Certificar destruicao segura quando aplicavel."
+  },
+  {
+    "code": "A2.7",
+    "title": "Disponibilizacao de informacoes de conformidade",
+    "category": "annex_a2",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A2.7",
+    "description": "Disponibilizar ao controlador informacoes necessarias para demonstrar conformidade com privacidade e contrato. Incluir relatorios e evidencias sob solicitacao."
+  },
+  {
+    "code": "A2.8",
+    "title": "Auditoria e inspecao pelo controlador",
+    "category": "annex_a2",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A2.8",
+    "description": "Permitir auditorias e inspecoes pelo controlador ou auditor autorizado, com limites razoaveis. Cooperar na verificacao de controles de tratamento."
+  },
+  {
+    "code": "A2.9",
+    "title": "Notificacao de incidentes ao controlador",
+    "category": "annex_a2",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A2.9",
+    "description": "Notificar o controlador sem demora indevida sobre incidentes de PII que afetem dados sob tratamento. Fornecer detalhes para avaliacao de notificacao regulatoria."
+  },
+  {
+    "code": "A2.10",
+    "title": "Localizacao e transferencia de PII pelo operador",
+    "category": "annex_a2",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A2.10",
+    "description": "Tratar localizacao e transferencia internacional de PII apenas conforme instrucoes e salvaguardas do controlador. Documentar paises e mecanismos aplicados."
+  },
+  {
+    "code": "A2.11",
+    "title": "Gestao de acessos ao PII pelo operador",
+    "category": "annex_a2",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A2.11",
+    "description": "Gerenciar acessos de pessoas do operador ao PII do controlador com principio do menor privilegio. Revisar contas e revogar acessos desnecessarios."
+  },
+  {
+    "code": "A2.12",
+    "title": "Segregacao de PII entre clientes",
+    "category": "annex_a2",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A2.12",
+    "description": "Segregar PII de diferentes controladores para evitar mistura ou uso cruzado indevido. Aplicar separacao logica ou fisica conforme arquitetura."
+  },
+  {
+    "code": "A2.13",
+    "title": "Monitoramento de conformidade contratual",
+    "category": "annex_a2",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A2.13",
+    "description": "Monitorar cumprimento das obrigacoes contratuais de tratamento e medidas de seguranca acordadas. Reportar desvios ao controlador."
+  },
+  {
+    "code": "A2.14",
+    "title": "Retencao limitada pelo operador",
+    "category": "annex_a2",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A2.14",
+    "description": "Retener PII do controlador apenas pelo periodo necessario ao servico ou instrucao contratual. Nao usar dados para fins proprios do operador."
+  },
+  {
+    "code": "A2.15",
+    "title": "Restricao de uso para finalidades do controlador",
+    "category": "annex_a2",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A2.15",
+    "description": "Restringir uso de PII as finalidades e instrucoes do controlador, sem tratamento adicional nao autorizado. Bloquear usos secundarios nao contratados."
+  },
+  {
+    "code": "A2.16",
+    "title": "Gestao de mudancas no tratamento",
+    "category": "annex_a2",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A2.16",
+    "description": "Gerenciar mudancas no tratamento que afetem PII com avaliacao de impacto e comunicacao ao controlador. Obter aprovacao antes de alteracoes materiais."
+  },
+  {
+    "code": "A2.17",
+    "title": "Continuidade do tratamento de PII",
+    "category": "annex_a2",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A2.17",
+    "description": "Garantir continuidade do tratamento de PII conforme requisitos de continuidade acordados com o controlador. Incluir recuperacao e comunicacao em interrupcoes."
+  },
+  {
+    "code": "A2.18",
+    "title": "Treinamento de privacidade para operadores",
+    "category": "annex_a2",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A2.18",
+    "description": "Capacitar pessoas do operador que tratam PII em privacidade e seguranca do tratamento. Atualizar conforme mudancas de processo ou legislacao."
+  },
+  {
+    "code": "A2.19",
+    "title": "Gestao de solicitacoes de titulares recebidas",
+    "category": "annex_a2",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A2.19",
+    "description": "Encaminhar ao controlador solicitacoes de titulares recebidas diretamente pelo operador, sem responder fora de instrucao. Registrar e rastrear prazos."
+  },
+  {
+    "code": "A2.20",
+    "title": "Registro de operacoes de tratamento pelo operador",
+    "category": "annex_a2",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A2.20",
+    "description": "Manter registro das operacoes de tratamento realizadas em nome de cada controlador. Suportar demonstracao de conformidade e auditoria."
+  },
+  {
+    "code": "A2.21",
+    "title": "Criptografia e pseudonimizacao no tratamento",
+    "category": "annex_a2",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A2.21",
+    "description": "Aplicar criptografia e pseudonimizacao no tratamento de PII conforme instrucoes e boas praticas. Proteger dados em repouso, transito e backup."
+  },
+  {
+    "code": "A2.22",
+    "title": "Testes e avaliacoes periodicas de seguranca",
+    "category": "annex_a2",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A2.22",
+    "description": "Realizar testes e avaliacoes periodicas de seguranca dos sistemas que tratam PII. Corrigir vulnerabilidades e reportar resultados relevantes ao controlador."
+  },
+  {
+    "code": "A2.23",
+    "title": "Encerramento seguro de contratos de tratamento",
+    "category": "annex_a2",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A2.23",
+    "description": "Encerrar contratos de tratamento com devolucao ou destruicao segura de PII e revogacao de acessos. Documentar encerramento e certificacoes quando exigidas."
+  },
+  {
+    "code": "A2.24",
+    "title": "Cooperacao com autoridades de protecao de dados",
+    "category": "annex_a2",
+    "module": "ISO27701",
+    "catalog_version": "NBR ISO/IEC 27701:2026",
+    "guidance_ref": "NBR ISO/IEC 27701:2026 Anexo A2.24",
+    "description": "Cooperar com autoridades de protecao de dados conforme orientacao do controlador e lei aplicavel. Fornecer informacoes solicitadas dentro do escopo contratual."
+  }
+]
