@@ -53,3 +53,9 @@ cd frontend && npm install && npm run dev
 ```bash
 cd backend && python scripts/generate_seeds.py && python -m app.seed
 ```
+
+
+## Integrantes do Projeto
+Ana Laura da Silva Müller
+Henrique Costa Nascimento
+Sara de Almeida Sehnem
