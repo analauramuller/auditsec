@@ -5,7 +5,7 @@
 - `use-case.puml` - casos de uso do auditor
 - `class-diagram.puml` - classes principais e services
 
-## Gerar PNG
+## Gerar o PNG
 
 Com Docker (PlantUML):
 
