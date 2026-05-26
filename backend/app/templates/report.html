@@ -31,6 +31,87 @@
     <div class="card"><strong>Nao aplica</strong><br>{{ dashboard.nao_aplica }}</div>
   </div>
 
+  <!-- Grafico por categoria (Chart.js) - canvas interativo + fallback em <noscript> -->
+  <article class="mb-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+    <h3 class="mb-4 text-center text-sm font-semibold text-slate-800">Conformidade por categoria (gráfico)</h3>
+    {% if overview_pie %}
+    <div style="max-width:900px;margin:0 auto;">
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:flex-start;">
+        <div style="min-width:220px;text-align:center;padding:8px;border:1px solid #eee;border-radius:6px;">
+          <div style="font-weight:600;margin-bottom:6px;font-size:13px;color:#1f2937;">Visão geral</div>
+          <img src="{{ overview_pie }}" alt="Visão geral" style="max-width:220px;">
+        </div>
+
+        <div style="flex:1;padding:8px;border:1px solid #eee;border-radius:6px;">
+          <div style="font-weight:600;margin-bottom:6px;font-size:13px;color:#1f2937;">Conformidade por categoria (barras)</div>
+          <img src="{{ bar_chart }}" alt="Conformidade por categoria" style="width:100%;height:auto;display:block;">
+        </div>
+      </div>
+
+      <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap;">
+        {% for cp in category_pies %}
+        <div style="width:180px;text-align:center;padding:6px;border:1px solid #f0f0f0;border-radius:6px;background:#fff;">
+          <div style="font-size:12px;color:#333;margin-bottom:6px;">{{ cp.label }}</div>
+          <img src="{{ cp.img }}" alt="{{ cp.label }}" style="max-width:160px;display:block;margin:0 auto;">
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    </article>
+    {% else %}
+    <div style="max-width:900px;margin:0 auto;">
+      <canvas id="reportChart" width="800" height="240"></canvas>
+      <noscript>
+        <div class="chart-rows" style="max-width:900px;margin:0 auto;">
+          {% for cat in dashboard.by_category %}
+          <div class="bar-row" style="display:flex;align-items:center;margin:6px 0;">
+            <div style="width:180px;font-size:12px;color:#333;padding-right:8px;">{{ cat.label }}</div>
+            <div style="flex:1;background:#f1f5f9;border-radius:4px;height:18px;overflow:hidden;margin-right:8px">
+              <div style="height:100%;background:#2563eb;width:{{ '%s%%' % cat.percent_conformidade }};"></div>
+            </div>
+            <div style="width:50px;text-align:right;font-size:12px;color:#111">{{ cat.percent_conformidade }}%</div>
+          </div>
+          {% endfor %}
+        </div>
+      </noscript>
+    </div>
+  </article>
+
+  <!-- Chart.js via CDN - construimos os dados a partir de dashboard.by_category -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    (function(){
+      try {
+        const labels = {{ dashboard.by_category | map(attribute='label') | list | tojson }};
+        const values = {{ dashboard.by_category | map(attribute='percent_conformidade') | list | tojson }};
+        const ctx = document.getElementById('reportChart');
+        if (!ctx) return;
+        new Chart(ctx.getContext('2d'), {
+          type: 'bar',
+          data: {
+            labels: labels,
+            datasets: [{
+              label: '% Conformidade',
+              data: values,
+              backgroundColor: '#2563eb'
+            }]
+          },
+          options: {
+            plugins: { legend: { display: false } },
+            scales: {
+              x: { grid: { display: false } },
+              y: { beginAtZero: true, max: 100 }
+            },
+            maintainAspectRatio: false
+          }
+        });
+      } catch (e) {
+        console.error('Erro ao renderizar grafico do relatorio', e);
+      }
+    })();
+  </script>
+  {% endif %}
+
   <h2>Por categoria</h2>
   <table>
     <tr><th>Categoria</th><th>Total</th><th>Conforme</th><th>NC</th><th>Andamento</th><th>N/A</th><th>%</th></tr>

@@ -7,6 +7,15 @@ from app.database import Base
 from app.domain.enums import AuditStatus, IsoModule, ResponseStatus
 
 
+class User(Base):
+    __tablename__ = "users"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    login: Mapped[str] = mapped_column(String(120), nullable=False)
+    password: Mapped[str] = mapped_column(String(128), nullable=False)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+
+
 class Company(Base):
     __tablename__ = "companies"
 

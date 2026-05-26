@@ -5,6 +5,7 @@ async function request(path, options = {}) {
   try {
     res = await fetch(`${BASE}${path}`, {
       headers: { 'Content-Type': 'application/json', ...options.headers },
+      credentials: 'include',
       ...options,
     })
   } catch {
@@ -13,6 +14,7 @@ async function request(path, options = {}) {
     )
   }
   if (!res.ok) {
+    if (res.status === 401) throw new Error('Nao autenticado')
     const err = await res.json().catch(() => ({}))
     const detail = err.detail
     let message = 'Erro na requisicao'
@@ -26,6 +28,10 @@ async function request(path, options = {}) {
 }
 
 export const api = {
+  login: (data) => request('/auth/login', { method: 'POST', body: JSON.stringify(data) }),
+  logout: () => request('/auth/logout', { method: 'POST' }),
+  me: () => request('/auth/me'),
+  register: (data) => request('/auth/register', { method: 'POST', body: JSON.stringify(data) }),
   getModules: () => request('/modules'),
   getControls: (module) => request(`/controls?module=${module}`),
   listCompanies: () => request('/companies'),

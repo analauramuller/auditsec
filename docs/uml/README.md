@@ -14,5 +14,3 @@ docker run --rm -v "$(pwd):/data" plantuml/plantuml -tpng /data/use-case.puml /d
 ```
 
 Com extensao PlantUML no VS Code/Cursor: abrir o `.puml` e exportar.
-
-Os PNG gerados podem ser incluidos na apresentacao do PSI (25-26/maio).

@@ -1,10 +1,13 @@
 import json
 from pathlib import Path
 
+from sqlalchemy import func
 from sqlalchemy.orm import Session
 
+from app.config import settings
 from app.database import SessionLocal
-from app.models.entities import AuditResponse, Control
+from app.models.entities import AuditResponse, Control, User
+from app.utils.password import validate_password
 
 SEEDS_DIR = Path(__file__).resolve().parent.parent / "data" / "seeds"
 SEED_FILES = ("iso27002_2022.json", "iso27701.json")
@@ -66,9 +69,31 @@ def sync_catalog(db: Session) -> tuple[int, int]:
     return inserted, updated
 
 
+def ensure_admin_user(db: Session) -> User:
+    login = settings.admin_login.strip()
+    password = settings.admin_password
+    validate_password(password)
+
+    existing = (
+        db.query(User).filter(func.lower(User.login) == login.lower()).first()
+    )
+    if existing:
+        existing.login = login
+        existing.password = password
+        db.commit()
+        return existing
+
+    user = User(login=login, password=password)
+    db.add(user)
+    db.commit()
+    db.refresh(user)
+    return user
+
+
 def main():
     db = SessionLocal()
     try:
+        ensure_admin_user(db)
         inserted, updated = sync_catalog(db)
         print(f"Catalogo sincronizado: {inserted} novos, {updated} atualizados.")
     finally:

@@ -1,6 +1,22 @@
+<script setup>
+import { useRouter } from 'vue-router'
+import { useAuthStore } from './stores/auth'
+
+const router = useRouter()
+const auth = useAuthStore()
+
+async function onLogout() {
+  await auth.logout()
+  router.replace('/login')
+}
+</script>
+
 <template>
   <div class="flex min-h-screen flex-col">
-    <header class="sticky top-0 z-10 border-b border-slate-200 bg-white shadow-sm">
+    <header
+      v-if="auth.isAuthenticated"
+      class="sticky top-0 z-10 border-b border-slate-200 bg-white shadow-sm"
+    >
       <nav class="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-6">
         <router-link
           to="/"
@@ -35,6 +51,15 @@
             >
               Relatorios
             </router-link>
+          </li>
+          <li>
+            <button
+              type="button"
+              class="rounded-lg px-3 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-100 hover:text-slate-900"
+              @click="onLogout"
+            >
+              Sair
+            </button>
           </li>
         </ul>
       </nav>
