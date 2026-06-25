@@ -5,7 +5,7 @@
   <title>Relatorio de Conformidade - {{ company.name }}</title>
   <style>
     body { font-family: system-ui, sans-serif; margin: 2rem; color: #222; }
-    h1, h2 { color: #1a365d; }
+    h1, h2, h3 { color: #1a365d; }
     table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
     th, td { border: 1px solid #ccc; padding: 0.5rem; text-align: left; }
     th { background: #edf2f7; }
@@ -13,6 +13,17 @@
     .card { border: 1px solid #ccc; padding: 1rem; border-radius: 4px; min-width: 140px; }
     .conforme { color: #276749; }
     .nc { color: #c53030; }
+    .category-section, .status-section { margin-top: 1.5rem; page-break-inside: avoid; }
+    .category-header, .status-header { background: #f7fafc; padding: 0.75rem 1rem; border-radius: 4px; margin-bottom: 0.5rem; }
+    .chart-date-section, .compare-block { margin-top: 1.5rem; padding: 1rem; border: 1px solid #e2e8f0; border-radius: 8px; page-break-inside: avoid; }
+    .chart-date-title, .compare-block-title { text-align: center; font-size: 14px; font-weight: 600; margin-bottom: 1rem; color: #1f2937; }
+    .compare-dates-banner { margin: 1rem 0; padding: 0.75rem 1rem; background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 6px; font-size: 14px; color: #1e3a5f; }
+    .stats-by-date { font-size: 13px; color: #4a5568; margin: 0.25rem 0 0.75rem; }
+    .status-cell-conforme { color: #276749; font-weight: 600; background: #f0fff4; }
+    .status-cell-nc { color: #c53030; font-weight: 600; background: #fff5f5; }
+    .status-cell-andamento { color: #b7791f; font-weight: 600; background: #fffbeb; }
+    .status-cell-na { color: #64748b; font-weight: 600; background: #f8fafc; }
+    .status-cell-pendente { color: #94a3b8; font-style: italic; background: #f9fafb; }
     @media print { button { display: none; } }
   </style>
 </head>
@@ -20,9 +31,31 @@
   <button onclick="window.print()">Imprimir</button>
   <h1>Relatorio de Conformidade ISO</h1>
   <p><strong>Empresa:</strong> {{ company.name }}{% if company.cnpj %} ({{ company.cnpj }}){% endif %}</p>
-  <p><strong>Modulo:</strong> {{ audit.module }} | <strong>Data:</strong> {{ audit.audit_date }}</p>
-  <p><strong>Tipo:</strong> {{ report_type }} | <strong>Modo:</strong> {{ mode }}</p>
+  <p><strong>Modulo:</strong> {{ audit.module }} | <strong>Data da auditoria atual:</strong> {{ audit.audit_date.strftime('%d/%m/%Y') }}</p>
+  <p><strong>Tipo:</strong> {% if report_type == 'by_category' %}Por tipos de controle{% else %}Completo{% endif %}
+     | <strong>Modo:</strong> {% if mode == 'comparative' %}Comparativo{% else %}Atual{% endif %}</p>
 
+  {% if mode == 'comparative' and comparison_dates_display %}
+  <div class="compare-dates-banner">
+    <strong>Auditorias comparadas:</strong> {{ comparison_dates_display }}
+  </div>
+  {% endif %}
+
+  {% if mode == 'comparative' and comparison_summaries %}
+  <h2>Resumo geral (comparativo)</h2>
+  {% for summary in comparison_summaries %}
+  <div class="compare-block">
+    <div class="compare-block-title">{{ summary.date_label }} — {{ summary.percent_total }}% de conformidade</div>
+    <div class="summary">
+      <div class="card"><strong>Conformidade geral</strong><br>{{ summary.percent_total }}%</div>
+      <div class="card"><strong>Conformes</strong><br>{{ summary.conforme }}</div>
+      <div class="card"><strong>Nao conformes</strong><br>{{ summary.nao_conforme }}</div>
+      <div class="card"><strong>Em andamento</strong><br>{{ summary.em_andamento }}</div>
+      <div class="card"><strong>Nao aplica</strong><br>{{ summary.nao_aplica }}</div>
+    </div>
+  </div>
+  {% endfor %}
+  {% else %}
   <div class="summary">
     <div class="card"><strong>Conformidade geral</strong><br>{{ dashboard.percent_total }}%</div>
     <div class="card"><strong>Conformes</strong><br>{{ dashboard.conforme }}</div>
@@ -30,24 +63,49 @@
     <div class="card"><strong>Em andamento</strong><br>{{ dashboard.em_andamento }}</div>
     <div class="card"><strong>Nao aplica</strong><br>{{ dashboard.nao_aplica }}</div>
   </div>
+  {% endif %}
 
-  <!-- Grafico por categoria (Chart.js) - canvas interativo + fallback em <noscript> -->
-  <article class="mb-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-    <h3 class="mb-4 text-center text-sm font-semibold text-slate-800">Conformidade por categoria (gráfico)</h3>
-    {% if overview_pie %}
+  {% if mode == 'comparative' and comparison_chart_sets %}
+  <h2 style="margin-top:1.5rem;">Graficos de conformidade (comparativo)</h2>
+  {% for chart_set in comparison_chart_sets %}
+  <div class="chart-date-section">
+    <div class="chart-date-title">Graficos de conformidade — {{ chart_set.date_label }} ({{ chart_set.percent_total }}%)</div>
     <div style="max-width:900px;margin:0 auto;">
       <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:flex-start;">
         <div style="min-width:220px;text-align:center;padding:8px;border:1px solid #eee;border-radius:6px;">
-          <div style="font-weight:600;margin-bottom:6px;font-size:13px;color:#1f2937;">Visão geral</div>
-          <img src="{{ overview_pie }}" alt="Visão geral" style="max-width:220px;">
+          <div style="font-weight:600;margin-bottom:6px;font-size:13px;color:#1f2937;">Visao geral</div>
+          <img src="{{ chart_set.overview_pie }}" alt="Visao geral {{ chart_set.date_label }}" style="max-width:220px;">
         </div>
-
         <div style="flex:1;padding:8px;border:1px solid #eee;border-radius:6px;">
-          <div style="font-weight:600;margin-bottom:6px;font-size:13px;color:#1f2937;">Conformidade por categoria (barras)</div>
+          <div style="font-weight:600;margin-bottom:6px;font-size:13px;color:#1f2937;">% por categoria (barras)</div>
+          <img src="{{ chart_set.bar_chart }}" alt="Conformidade por categoria {{ chart_set.date_label }}" style="width:100%;height:auto;display:block;">
+        </div>
+      </div>
+      <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap;">
+        {% for cp in chart_set.category_pies %}
+        <div style="width:180px;text-align:center;padding:6px;border:1px solid #f0f0f0;border-radius:6px;background:#fff;">
+          <div style="font-size:12px;color:#333;margin-bottom:6px;">{{ cp.label }}</div>
+          <img src="{{ cp.img }}" alt="{{ cp.label }}" style="max-width:160px;display:block;margin:0 auto;">
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  {% else %}
+  <article style="margin-top:1.5rem;padding:1rem;border:1px solid #e2e8f0;border-radius:8px;">
+    <h3 style="text-align:center;font-size:14px;margin-bottom:1rem;">Graficos de conformidade</h3>
+    <div style="max-width:900px;margin:0 auto;">
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:flex-start;">
+        <div style="min-width:220px;text-align:center;padding:8px;border:1px solid #eee;border-radius:6px;">
+          <div style="font-weight:600;margin-bottom:6px;font-size:13px;color:#1f2937;">Visao geral</div>
+          <img src="{{ overview_pie }}" alt="Visao geral" style="max-width:220px;">
+        </div>
+        <div style="flex:1;padding:8px;border:1px solid #eee;border-radius:6px;">
+          <div style="font-weight:600;margin-bottom:6px;font-size:13px;color:#1f2937;">% por categoria (barras)</div>
           <img src="{{ bar_chart }}" alt="Conformidade por categoria" style="width:100%;height:auto;display:block;">
         </div>
       </div>
-
       <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap;">
         {% for cp in category_pies %}
         <div style="width:180px;text-align:center;padding:6px;border:1px solid #f0f0f0;border-radius:6px;background:#fff;">
@@ -57,62 +115,32 @@
         {% endfor %}
       </div>
     </div>
-    </article>
-    {% else %}
-    <div style="max-width:900px;margin:0 auto;">
-      <canvas id="reportChart" width="800" height="240"></canvas>
-      <noscript>
-        <div class="chart-rows" style="max-width:900px;margin:0 auto;">
-          {% for cat in dashboard.by_category %}
-          <div class="bar-row" style="display:flex;align-items:center;margin:6px 0;">
-            <div style="width:180px;font-size:12px;color:#333;padding-right:8px;">{{ cat.label }}</div>
-            <div style="flex:1;background:#f1f5f9;border-radius:4px;height:18px;overflow:hidden;margin-right:8px">
-              <div style="height:100%;background:#2563eb;width:{{ '%s%%' % cat.percent_conformidade }};"></div>
-            </div>
-            <div style="width:50px;text-align:right;font-size:12px;color:#111">{{ cat.percent_conformidade }}%</div>
-          </div>
-          {% endfor %}
-        </div>
-      </noscript>
-    </div>
   </article>
-
-  <!-- Chart.js via CDN - construimos os dados a partir de dashboard.by_category -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script>
-    (function(){
-      try {
-        const labels = {{ dashboard.by_category | map(attribute='label') | list | tojson }};
-        const values = {{ dashboard.by_category | map(attribute='percent_conformidade') | list | tojson }};
-        const ctx = document.getElementById('reportChart');
-        if (!ctx) return;
-        new Chart(ctx.getContext('2d'), {
-          type: 'bar',
-          data: {
-            labels: labels,
-            datasets: [{
-              label: '% Conformidade',
-              data: values,
-              backgroundColor: '#2563eb'
-            }]
-          },
-          options: {
-            plugins: { legend: { display: false } },
-            scales: {
-              x: { grid: { display: false } },
-              y: { beginAtZero: true, max: 100 }
-            },
-            maintainAspectRatio: false
-          }
-        });
-      } catch (e) {
-        console.error('Erro ao renderizar grafico do relatorio', e);
-      }
-    })();
-  </script>
   {% endif %}
 
-  <h2>Por categoria</h2>
+  {% if mode == 'comparative' and comparison_summaries %}
+  <h2>Resumo por categoria (comparativo)</h2>
+  {% for summary in comparison_summaries %}
+  <div class="compare-block">
+    <div class="compare-block-title">{{ summary.date_label }}</div>
+    <table>
+      <tr><th>Categoria</th><th>Total</th><th>Conforme</th><th>NC</th><th>Andamento</th><th>N/A</th><th>%</th></tr>
+      {% for cat in summary.by_category %}
+      <tr>
+        <td>{{ cat.label }}</td>
+        <td>{{ cat.total }}</td>
+        <td class="conforme">{{ cat.conforme }}</td>
+        <td class="nc">{{ cat.nao_conforme }}</td>
+        <td>{{ cat.em_andamento }}</td>
+        <td>{{ cat.nao_aplica }}</td>
+        <td>{{ cat.percent_conformidade }}%</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  {% endfor %}
+  {% else %}
+  <h2>Resumo por categoria</h2>
   <table>
     <tr><th>Categoria</th><th>Total</th><th>Conforme</th><th>NC</th><th>Andamento</th><th>N/A</th><th>%</th></tr>
     {% for cat in dashboard.by_category %}
@@ -127,31 +155,164 @@
     </tr>
     {% endfor %}
   </table>
-
-  {% if comparison and comparison.audits %}
-  <h2>Comparativo (ultimas auditorias)</h2>
-  <table>
-    <tr><th>Data</th><th>% Conformidade</th></tr>
-    {% for item in comparison.audits %}
-    <tr><td>{{ item.audit_date }}</td><td>{{ item.percent_conformidade }}%</td></tr>
-    {% endfor %}
-  </table>
   {% endif %}
 
-  <h2>Detalhamento dos controles</h2>
+  {% if mode == 'comparative' and comparison and comparison.audits %}
+  <h2>Comparativo (ultimas auditorias)</h2>
+  <p class="stats-by-date"><strong>Datas comparadas:</strong> {{ comparison_dates_display }}</p>
   <table>
-    <tr><th>Codigo</th><th>Titulo</th><th>Categoria</th><th>Status</th></tr>
-    {% for row in rows %}
+    <tr><th>Data</th><th>% Conformidade</th><th>Variacao</th></tr>
+    {% for item in comparison.audits %}
     <tr>
-      <td>{{ row.code }}</td>
-      <td>
-        {{ row.title }}
-        {% if row.description %}<br><small style="color:#555">{{ row.description }}</small>{% endif %}
-      </td>
-      <td>{{ row.category }}</td>
-      <td>{{ row.status }}</td>
+      <td>{{ item.audit_date.strftime('%d/%m/%Y') }}</td>
+      <td>{{ item.percent_conformidade }}%</td>
+      <td>{% if item.delta_percent is not none %}{% if item.delta_percent > 0 %}+{% endif %}{{ item.delta_percent }}%{% else %}—{% endif %}</td>
     </tr>
     {% endfor %}
   </table>
+  {% if comparison_chart %}
+  <div style="margin-top:1rem;padding:8px;border:1px solid #eee;border-radius:6px;">
+    <div style="font-weight:600;margin-bottom:6px;font-size:13px;">Evolucao da conformidade</div>
+    <img src="{{ comparison_chart }}" alt="Evolucao conformidade" style="width:100%;height:auto;">
+  </div>
+  {% endif %}
+  {% endif %}
+
+  {% if report_type == 'by_category' %}
+  <h2>Detalhamento por tipo de controle{% if mode == 'comparative' and comparison_categories_grouped %} (comparativo){% endif %}</h2>
+  {% if mode == 'comparative' and comparison_categories_grouped %}
+  <p class="stats-by-date"><strong>Auditorias comparadas:</strong> {{ comparison_dates_display }}. Agrupado pelo status da auditoria atual.</p>
+  {% for group in comparison_categories_grouped %}
+  <div class="category-section">
+    <div class="category-header"><strong>{{ group.label }}</strong></div>
+    {% for item in group.stats_by_date %}
+    <p class="stats-by-date">
+      <strong>{{ item.date_label }}:</strong>
+      {% if item.stats %}
+      {{ item.stats.percent_conformidade }}% conformidade
+      ({{ item.stats.conforme }} conformes, {{ item.stats.nao_conforme }} NC)
+      {% else %}—{% endif %}
+    </p>
+    {% endfor %}
+    {% for sg in group.status_groups %}
+    <div class="status-section">
+      <div class="status-header {{ sg.css_class }}">
+        <strong>{{ sg.label }}</strong> ({{ sg.controls|length }} controle{{ 's' if sg.controls|length != 1 else '' }})
+      </div>
+      <table>
+        <tr>
+          <th>Codigo</th>
+          <th>Titulo</th>
+          {% for col in audit_date_columns %}
+          <th>{{ col.date_label }}</th>
+          {% endfor %}
+        </tr>
+        {% for row in sg.controls %}
+        <tr>
+          <td>{{ row.code }}</td>
+          <td>
+            {{ row.title }}
+            {% if row.description %}<br><small style="color:#555">{{ row.description }}</small>{% endif %}
+          </td>
+          {% for item in row.status_by_date %}
+          <td class="{{ item.css_class }}">{{ item.label }}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+  {% else %}
+  {% for group in categories_grouped %}
+  <div class="category-section">
+    <div class="category-header">
+      <strong>{{ group.label }}</strong>
+      {% if group.stats %}
+      — {{ group.stats.percent_conformidade }}% conformidade
+      ({{ group.stats.conforme }} conformes, {{ group.stats.nao_conforme }} NC)
+      {% endif %}
+    </div>
+    {% for sg in group.status_groups %}
+    <div class="status-section">
+      <div class="status-header {{ sg.css_class }}">
+        <strong>{{ sg.label }}</strong> ({{ sg.controls|length }} controle{{ 's' if sg.controls|length != 1 else '' }})
+      </div>
+      <table>
+        <tr><th>Codigo</th><th>Titulo</th></tr>
+        {% for row in sg.controls %}
+        <tr>
+          <td>{{ row.code }}</td>
+          <td>
+            {{ row.title }}
+            {% if row.description %}<br><small style="color:#555">{{ row.description }}</small>{% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+  {% endif %}
+
+  {% else %}
+  <h2>Detalhamento completo dos controles{% if mode == 'comparative' and comparison_status_grouped %} (comparativo){% endif %}</h2>
+  {% if mode == 'comparative' and comparison_status_grouped %}
+  <p class="stats-by-date"><strong>Auditorias comparadas:</strong> {{ comparison_dates_display }}. Agrupado pelo status da auditoria atual.</p>
+  {% for group in comparison_status_grouped %}
+  <div class="status-section">
+    <div class="status-header {{ group.css_class }}">
+      <strong>{{ group.label }}</strong> ({{ group.controls|length }} controle{{ 's' if group.controls|length != 1 else '' }})
+    </div>
+    <table>
+      <tr>
+        <th>Codigo</th>
+        <th>Titulo</th>
+        <th>Categoria</th>
+        {% for col in audit_date_columns %}
+        <th>{{ col.date_label }}</th>
+        {% endfor %}
+      </tr>
+      {% for row in group.controls %}
+      <tr>
+        <td>{{ row.code }}</td>
+        <td>
+          {{ row.title }}
+          {% if row.description %}<br><small style="color:#555">{{ row.description }}</small>{% endif %}
+        </td>
+        <td>{{ row.category_label }}</td>
+        {% for item in row.status_by_date %}
+        <td class="{{ item.css_class }}">{{ item.label }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  {% endfor %}
+  {% else %}
+  {% for group in status_grouped %}
+  <div class="status-section">
+    <div class="status-header {{ group.css_class }}">
+      <strong>{{ group.label }}</strong> ({{ group.controls|length }} controle{{ 's' if group.controls|length != 1 else '' }})
+    </div>
+    <table>
+      <tr><th>Codigo</th><th>Titulo</th><th>Categoria</th></tr>
+      {% for row in group.controls %}
+      <tr>
+        <td>{{ row.code }}</td>
+        <td>
+          {{ row.title }}
+          {% if row.description %}<br><small style="color:#555">{{ row.description }}</small>{% endif %}
+        </td>
+        <td>{{ row.category_label }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  {% endfor %}
+  {% endif %}
+  {% endif %}
 </body>
 </html>

@@ -9,10 +9,10 @@ class CompanyRepository:
     def __init__(self, db: Session):
         self.db = db
 
-    def create(self, name: str, cnpj: str | None) -> Company:
+    def create(self, name: str, cnpj: str | None, user_id: int) -> Company:
         clean_name = normalize_name(name)
         clean_cnpj = normalize_cnpj(cnpj)
-        company = Company(name=clean_name, cnpj=clean_cnpj)
+        company = Company(name=clean_name, cnpj=clean_cnpj, user_id=user_id)
         self.db.add(company)
         self.db.commit()
         self.db.refresh(company)
@@ -20,6 +20,13 @@ class CompanyRepository:
 
     def get(self, company_id: int) -> Company | None:
         return self.db.get(Company, company_id)
+
+    def get_for_user(self, company_id: int, user_id: int) -> Company | None:
+        return (
+            self.db.query(Company)
+            .filter(Company.id == company_id, Company.user_id == user_id)
+            .first()
+        )
 
     def find_by_name(self, name: str) -> Company | None:
         clean = normalize_name(name)
@@ -35,5 +42,10 @@ class CompanyRepository:
             return None
         return self.db.query(Company).filter(Company.cnpj == clean).first()
 
-    def list_all(self) -> list[Company]:
-        return self.db.query(Company).order_by(Company.name).all()
+    def list_by_user(self, user_id: int) -> list[Company]:
+        return (
+            self.db.query(Company)
+            .filter(Company.user_id == user_id)
+            .order_by(Company.name)
+            .all()
+        )

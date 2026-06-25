@@ -99,6 +99,7 @@ class AuditService:
 
         return {
             "audit_id": audit.id,
+            "audit_date": audit.audit_date,
             "percent_total": summary["percent_conformidade"],
             "total_controles": summary["total"],
             "conforme": summary["conforme"],
@@ -111,17 +112,27 @@ class AuditService:
     def get_comparison(self, company_id: int, module: str) -> dict:
         audits = self.audit_repo.list_finished_by_company(company_id, module)
         items = []
+        prev_percent: float | None = None
         for audit in reversed(audits):
             controls = self.control_repo.list_by_module(module)
             audit_full = self.audit_repo.get_with_responses(audit.id)
-            summary = self.compliance.summarize_responses(
-                controls, audit_full.responses if audit_full else []
-            )
+            responses = audit_full.responses if audit_full else []
+            summary = self.compliance.summarize_responses(controls, responses)
+            by_category = self.compliance.summarize_by_category(controls, responses)
+            percent = summary["percent_conformidade"]
+            delta = round(percent - prev_percent, 2) if prev_percent is not None else None
+            prev_percent = percent
             items.append(
                 {
                     "audit_id": audit.id,
                     "audit_date": audit.audit_date,
-                    "percent_conformidade": summary["percent_conformidade"],
+                    "percent_conformidade": percent,
+                    "conforme": summary["conforme"],
+                    "nao_conforme": summary["nao_conforme"],
+                    "em_andamento": summary["em_andamento"],
+                    "nao_aplica": summary["nao_aplica"],
+                    "by_category": by_category,
+                    "delta_percent": delta,
                 }
             )
         return {"company_id": company_id, "module": module, "audits": items}

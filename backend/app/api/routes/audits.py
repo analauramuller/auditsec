@@ -1,8 +1,10 @@
-from fastapi import APIRouter, Depends, Query
+from fastapi import APIRouter, Depends, HTTPException, Query
 from fastapi.responses import HTMLResponse
 from sqlalchemy.orm import Session
 
+from app.auth import require_audit_access, require_auth, require_company_access
 from app.database import get_db
+from app.models.entities import User
 from app.repositories.audit_repo import AuditRepository
 from app.schemas.audit import (
     AuditCreate,
@@ -20,9 +22,12 @@ router = APIRouter(prefix="/audits", tags=["audits"])
 
 
 @router.get("/reports/catalog", response_model=list[ReportCatalogItem])
-def list_reports_catalog(db: Session = Depends(get_db)):
+def list_reports_catalog(
+    current_user: User = Depends(require_auth),
+    db: Session = Depends(get_db),
+):
     repo = AuditRepository(db)
-    audits = repo.list_all_finished()
+    audits = repo.list_all_finished(current_user.id)
     return [
         ReportCatalogItem(
             audit_id=a.id,
@@ -37,36 +42,43 @@ def list_reports_catalog(db: Session = Depends(get_db)):
 
 
 @router.get("/{audit_id}/responses", response_model=list[AuditResponseOut])
-def list_audit_responses(audit_id: int, db: Session = Depends(get_db)):
-    from fastapi import HTTPException
-
-    repo = AuditRepository(db)
-    if not repo.get(audit_id):
-        raise HTTPException(404, "Auditoria nao encontrada")
-    return repo.list_responses(audit_id)
+def list_audit_responses(
+    audit_id: int,
+    current_user: User = Depends(require_auth),
+    db: Session = Depends(get_db),
+):
+    require_audit_access(audit_id, current_user, db)
+    return AuditRepository(db).list_responses(audit_id)
 
 
 @router.post("", response_model=AuditOut)
-def create_audit(data: AuditCreate, db: Session = Depends(get_db)):
+def create_audit(
+    data: AuditCreate,
+    current_user: User = Depends(require_auth),
+    db: Session = Depends(get_db),
+):
+    require_company_access(data.company_id, current_user, db)
     service = AuditService(db)
     return service.create_audit(data.company_id, data.module, data.audit_date)
 
 
 @router.get("/{audit_id}", response_model=AuditOut)
-def get_audit(audit_id: int, db: Session = Depends(get_db)):
-    from fastapi import HTTPException
-
-    repo = AuditRepository(db)
-    audit = repo.get(audit_id)
-    if not audit:
-        raise HTTPException(404, "Auditoria nao encontrada")
-    return audit
+def get_audit(
+    audit_id: int,
+    current_user: User = Depends(require_auth),
+    db: Session = Depends(get_db),
+):
+    return require_audit_access(audit_id, current_user, db)
 
 
 @router.patch("/{audit_id}/responses", response_model=AuditResponseOut)
 def register_response(
-    audit_id: int, data: AuditResponseIn, db: Session = Depends(get_db)
+    audit_id: int,
+    data: AuditResponseIn,
+    current_user: User = Depends(require_auth),
+    db: Session = Depends(get_db),
 ):
+    require_audit_access(audit_id, current_user, db)
     service = AuditService(db)
     return service.register_response(
         audit_id, data.control_id, data.status, data.work_in_progress, data.notes
@@ -74,13 +86,23 @@ def register_response(
 
 
 @router.post("/{audit_id}/finish", response_model=AuditOut)
-def finish_audit(audit_id: int, db: Session = Depends(get_db)):
+def finish_audit(
+    audit_id: int,
+    current_user: User = Depends(require_auth),
+    db: Session = Depends(get_db),
+):
+    require_audit_access(audit_id, current_user, db)
     service = AuditService(db)
     return service.finish_audit(audit_id)
 
 
 @router.get("/{audit_id}/dashboard", response_model=DashboardOut)
-def get_dashboard(audit_id: int, db: Session = Depends(get_db)):
+def get_dashboard(
+    audit_id: int,
+    current_user: User = Depends(require_auth),
+    db: Session = Depends(get_db),
+):
+    require_audit_access(audit_id, current_user, db)
     service = AuditService(db)
     return service.get_dashboard(audit_id)
 
@@ -91,8 +113,10 @@ def get_report(
     type: str = Query("full", alias="type"),
     mode: str = Query("current"),
     company_id: int | None = None,
+    current_user: User = Depends(require_auth),
     db: Session = Depends(get_db),
 ):
+    require_audit_access(audit_id, current_user, db)
     service = ReportService(db)
     return service.generate_html(audit_id, type, mode, company_id)
 
@@ -102,15 +126,21 @@ def list_company_finished_history(
     company_id: int,
     module: str = Query(...),
     limit: int = Query(3, le=3),
+    current_user: User = Depends(require_auth),
     db: Session = Depends(get_db),
 ):
+    require_company_access(company_id, current_user, db)
     repo = AuditRepository(db)
     return repo.list_finished_by_company(company_id, module, limit)
 
 
 @router.get("/company/{company_id}/comparison", response_model=ComparisonOut)
 def get_comparison(
-    company_id: int, module: str = Query(...), db: Session = Depends(get_db)
+    company_id: int,
+    module: str = Query(...),
+    current_user: User = Depends(require_auth),
+    db: Session = Depends(get_db),
 ):
+    require_company_access(company_id, current_user, db)
     service = AuditService(db)
     return service.get_comparison(company_id, module)

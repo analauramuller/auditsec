@@ -15,15 +15,19 @@ class User(Base):
     password: Mapped[str] = mapped_column(String(128), nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
 
+    companies: Mapped[list["Company"]] = relationship(back_populates="owner")
+
 
 class Company(Base):
     __tablename__ = "companies"
 
     id: Mapped[int] = mapped_column(primary_key=True)
+    user_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), index=True)
     name: Mapped[str] = mapped_column(String(255), nullable=False)
     cnpj: Mapped[str | None] = mapped_column(String(18))
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
 
+    owner: Mapped["User | None"] = relationship(back_populates="companies")
     audits: Mapped[list["Audit"]] = relationship(back_populates="company")
 
 

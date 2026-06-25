@@ -2,7 +2,9 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
+from app.auth import require_auth, require_company_access
 from app.database import get_db
+from app.models.entities import User
 from app.repositories.audit_repo import AuditRepository
 from app.repositories.company_repo import CompanyRepository
 from app.schemas.audit import AuditCreate, AuditOut, AuditStart
@@ -14,8 +16,11 @@ router = APIRouter(prefix="/companies", tags=["companies"])
 
 
 @router.get("", response_model=list[CompanyOut])
-def list_companies(db: Session = Depends(get_db)):
-    return CompanyRepository(db).list_all()
+def list_companies(
+    current_user: User = Depends(require_auth),
+    db: Session = Depends(get_db),
+):
+    return CompanyRepository(db).list_by_user(current_user.id)
 
 
 @router.get("/check-duplicate", response_model=CompanyDuplicateCheck)
@@ -23,6 +28,7 @@ def check_duplicate(
     name: str = Query(..., min_length=2),
     cnpj: str | None = None,
     db: Session = Depends(get_db),
+    current_user: User = Depends(require_auth),
 ):
     repo = CompanyRepository(db)
     clean_cnpj = normalize_cnpj(cnpj)
@@ -51,10 +57,10 @@ def check_duplicate(
 def list_company_audits(
     company_id: int,
     module: str | None = None,
+    current_user: User = Depends(require_auth),
     db: Session = Depends(get_db),
 ):
-    if not CompanyRepository(db).get(company_id):
-        raise HTTPException(404, "Empresa nao encontrada")
+    require_company_access(company_id, current_user, db)
     return AuditRepository(db).list_by_company(company_id, module)
 
 
@@ -62,17 +68,20 @@ def list_company_audits(
 def start_audit_for_company(
     company_id: int,
     data: AuditStart,
+    current_user: User = Depends(require_auth),
     db: Session = Depends(get_db),
 ):
-    company = CompanyRepository(db).get(company_id)
-    if not company:
-        raise HTTPException(404, "Empresa nao encontrada")
+    require_company_access(company_id, current_user, db)
     service = AuditService(db)
     return service.create_audit(company_id, data.module, data.audit_date)
 
 
 @router.post("", response_model=CompanyOut, status_code=201)
-def create_company(data: CompanyCreate, db: Session = Depends(get_db)):
+def create_company(
+    data: CompanyCreate,
+    current_user: User = Depends(require_auth),
+    db: Session = Depends(get_db),
+):
     repo = CompanyRepository(db)
     clean_cnpj = normalize_cnpj(data.cnpj)
     if data.cnpj and data.cnpj.strip() and not clean_cnpj:
@@ -82,15 +91,16 @@ def create_company(data: CompanyCreate, db: Session = Depends(get_db)):
     if repo.find_by_name(data.name):
         raise HTTPException(409, "Nome de empresa ja cadastrado no sistema.")
     try:
-        return repo.create(data.name, data.cnpj)
+        return repo.create(data.name, data.cnpj, current_user.id)
     except IntegrityError:
         db.rollback()
         raise HTTPException(409, "Empresa ja cadastrada (nome ou CNPJ duplicado).")
 
 
 @router.get("/{company_id}", response_model=CompanyOut)
-def get_company(company_id: int, db: Session = Depends(get_db)):
-    company = CompanyRepository(db).get(company_id)
-    if not company:
-        raise HTTPException(404, "Empresa nao encontrada")
-    return company
+def get_company(
+    company_id: int,
+    current_user: User = Depends(require_auth),
+    db: Session = Depends(get_db),
+):
+    return require_company_access(company_id, current_user, db)

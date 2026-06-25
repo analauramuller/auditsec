@@ -87,11 +87,17 @@ class AuditRepository:
             query = query.filter(Audit.module == module)
         return query.order_by(Audit.audit_date.desc(), Audit.created_at.desc()).all()
 
-    def list_all_finished(self) -> list[Audit]:
+    def list_all_finished(self, user_id: int) -> list[Audit]:
+        from app.models.entities import Company
+
         return (
             self.db.query(Audit)
+            .join(Company, Audit.company_id == Company.id)
             .options(joinedload(Audit.company))
-            .filter(Audit.status == AuditStatus.FINISHED.value)
+            .filter(
+                Audit.status == AuditStatus.FINISHED.value,
+                Company.user_id == user_id,
+            )
             .order_by(Audit.finished_at.desc())
             .all()
         )

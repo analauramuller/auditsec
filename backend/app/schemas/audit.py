@@ -58,6 +58,7 @@ class CategoryStats(BaseModel):
 
 class DashboardOut(BaseModel):
     audit_id: int
+    audit_date: date
     percent_total: float
     total_controles: int
     conforme: int
@@ -71,6 +72,12 @@ class AuditComparisonItem(BaseModel):
     audit_id: int
     audit_date: date
     percent_conformidade: float
+    conforme: int
+    nao_conforme: int
+    em_andamento: int
+    nao_aplica: int
+    by_category: list[CategoryStats] = Field(default_factory=list)
+    delta_percent: float | None = None
 
 
 class ComparisonOut(BaseModel):

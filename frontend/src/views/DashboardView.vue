@@ -7,8 +7,22 @@ import { api } from '../services/api'
 import { useAuditStore } from '../stores/audit'
 import ChartCard from '../components/ChartCard.vue'
 import PageLayout from '../components/PageLayout.vue'
+import { formatAuditDate } from '../utils/format'
 
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend)
+
+const barChartOptions = {
+  maintainAspectRatio: true,
+  plugins: {
+    tooltip: {
+      callbacks: {
+        label(context) {
+          return `${Math.round(context.parsed.y)}%`
+        },
+      },
+    },
+  },
+}
 
 const route = useRoute()
 const router = useRouter()
@@ -62,6 +76,10 @@ function goReports() {
     :subtitle="store.company?.name"
     wide
   >
+    <div class="mb-4 rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-center text-sm text-slate-700">
+      <strong>Auditoria demonstrada:</strong> {{ formatAuditDate(dashboard.audit_date) }}
+    </div>
+
     <div class="mb-6 rounded-xl border border-blue-200 bg-blue-50 p-6 text-center shadow-sm">
       <p class="text-sm font-medium uppercase tracking-wide text-blue-800">Conformidade geral</p>
       <p class="mt-1 text-4xl font-bold text-blue-900">{{ dashboard.percent_total }}%</p>
@@ -80,6 +98,7 @@ function goReports() {
         :nao-conforme="dashboard.nao_conforme"
         :em-andamento="dashboard.em_andamento"
         :nao-aplica="dashboard.nao_aplica"
+        :percent="dashboard.percent_total"
       />
       <ChartCard
         v-for="cat in dashboard.by_category"
@@ -89,13 +108,14 @@ function goReports() {
         :nao-conforme="cat.nao_conforme"
         :em-andamento="cat.em_andamento"
         :nao-aplica="cat.nao_aplica"
+        :percent="cat.percent_conformidade"
       />
     </div>
 
     <article v-if="barData" class="mb-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
       <h3 class="mb-4 text-center text-sm font-semibold text-slate-800">Conformidade por categoria</h3>
       <div class="mx-auto max-h-64 w-full">
-        <Bar :data="barData" :options="{ maintainAspectRatio: true }" />
+        <Bar :data="barData" :options="barChartOptions" />
       </div>
     </article>
 
