@@ -172,42 +172,16 @@ O fluxo de utilização do **AuditaSecIFC** foi projetado para ser simples e int
 
 ### Diagrama do fluxo principal
 
-![Fluxo Principal](docs/uml/images/fluxo_principal.png)
+<img width="738" height="1307" alt="activity-diagram-AuditSecIFC" src="https://github.com/user-attachments/assets/4455d0f2-4876-407c-9573-25f681e8515e" />
 
 ---
 
 ## 📚 Documentação UML
 
-Para facilitar a compreensão da estrutura e do funcionamento do sistema, foram elaborados diagramas UML que representam os principais aspectos do projeto.
+Para facilitar a compreensão da estrutura e do funcionamento do sistema, foi elaborado o diagrama de Classes abaixo.
 
-### Diagramas disponíveis
+<img width="727" height="513" alt="class-diagram-AuditSecIFC" src="https://github.com/user-attachments/assets/13d79674-6a4a-44a3-9e07-425a958ce6a0" />
 
-- Diagrama de Casos de Uso;
-- Diagrama de Classes;
-- Diagrama de Atividades;
-- Fluxo Principal do sistema.
-
-Os arquivos-fonte dos diagramas (`.puml`) e as imagens geradas encontram-se no diretório:
-
-```text
-docs/uml/
-```
-
-### Diagrama de Casos de Uso
-
-![Diagrama de Casos de Uso](docs/uml/images/casos_de_uso.png)
-
-### Diagrama de Classes
-
-![Diagrama de Classes](docs/uml/images/diagrama_classes.png)
-
-### Diagrama de Atividades
-
-![Diagrama de Atividades](docs/uml/images/diagrama_atividades.png)
-
-### Fluxo Principal
-
-![Fluxo Principal](docs/uml/images/fluxo_principal.png)
 
 ---
 
