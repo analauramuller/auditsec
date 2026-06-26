@@ -109,7 +109,6 @@ Tipos:
 - Vue 3
 - Vite
 - Vue Router
-- Pinia
 - Tailwind CSS
 - Chart.js
 
@@ -117,9 +116,7 @@ Tipos:
 
 - Python 3.12
 - FastAPI
-- SQLAlchemy
 - Alembic
-- Jinja2
 - Matplotlib
 
 ### Banco de dados
