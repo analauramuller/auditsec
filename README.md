@@ -132,20 +132,6 @@ Tipos:
 
 ---
 
-## 🗄️ Modelo de dados
-
-As principais entidades do sistema são:
-
-| Entidade | Descrição |
-|----------|-----------|
-| User | Usuário autenticado |
-| Company | Empresa auditada |
-| Control | Catálogo de controles |
-| Audit | Auditoria realizada |
-| AuditResponse | Respostas dos controles |
-
----
-
 ## 📏 Regras de negócio
 
 1. A conformidade é calculada por:
